@@ -5,7 +5,7 @@
 @section('navbar-title', 'ARK Softwarez')
 
 @section('content')
-<?php  
+<?php
     $services = ["Tech Support","Search Engine Optimization", "Software Consulting", "Social Media Marketing", "Software Integration", "Data Analytics & Visualization", "App Migration & Upgrading", "App Performance Optimization", "Software Training & Education"];
 ?>
     <!-- Hero Section -->
@@ -18,12 +18,12 @@
                 <button class="bg-indigo-600 hover:bg-indigo-500 rounded-md py-4 px-8 text-white text-lg mb-6">Get Started</button>
             </div>
             <img src="{{asset('images/bg.jpg')}}" alt='Photo by <a href="https://unsplash.com/@jiaweizhao?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jiawei Zhao</a> on <a href="https://unsplash.com/photos/black-laptop-computer-on-brown-wooden-table-lHgHO7IBVFg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-            ' class="w-96 md:ml-10 rounded-md">
+            ' class="w-96 md:ml-10 rounded-md mt-6" loading="lazy">
         </div>
     </section>
 
     <!-- Features Grid -->
-    <section id="features" class="bg-gray-100 py-20">
+    <section id="features" class="bg-gray-100  pt-10 pb-20">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-medium mb-12 text-center">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -79,7 +79,7 @@
     </section>
 
     <!-- Testimonials & Video Section -->
-    <section id="video" class="py-20">
+    <section id="video" class="pt-5 pb-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row">
             <!-- Left video -->
             <div class="w-full basis-3/5 md:pr-7 md:w-3/5">

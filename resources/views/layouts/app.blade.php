@@ -13,11 +13,11 @@
 
     <!-- Navbar -->
     <nav class="bg-indigo-600 p-4 flex justify-between items-center">
-        <div class="text-white font-bold text-2xl">@yield('navbar-title', 'ARK Softwarez')</div>
+        <div class="text-white font-bold text-2xl"> <a href="/"> @yield('navbar-title', 'ARK Softwarez')</a></div>
         <div class="text-white">
-            <a href="#" class="p-2 hover:underline">Features</a>
+            <a href="/about" class="p-2 hover:underline">About</a>
             <a href="#" class="p-2 hover:underline">Pricing</a>
-            <a href="#" class="p-2 hover:underline">About</a>
+            <a href="#" class="p-2 hover:underline">Portfolio</a>
             <a href="#" class="p-2 hover:underline">Contact</a>
         </div>
     </nav>
