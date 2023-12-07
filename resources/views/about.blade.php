@@ -26,14 +26,14 @@
             build a solution that empowers businesses to grow faster and smarter.
         </p>
 
-        <h2 class="text-3xl mb-6">Revolutionalizing Education</h2>
+        <h2 class="text-3xl mb-6 mt-10">Revolutionalizing Education</h2>
         <p class="text-gray-500 mb-6">
             We're not just building apps – we're building a brighter future for education. We're working with schools to
             develop innovative software solutions that empower both students and teachers, leading to a more engaging and
             effective learning experience.
         </p>
 
-        <h2 class="text-3xl mb-6">Causing Societal Change</h2>
+        <h2 class="text-3xl mb-6 mt-10">Causing Societal Change</h2>
         <p class="text-gray-500 mb-6">
             We are also working with NGOs to help them build apps that will help them achieve their goals. We are working
             with NGOs that are working to achieve the Sustainable Development Goals (SDGs) to help them achieve their goals.
@@ -46,12 +46,12 @@
 
         <div class="">
             {{-- mission and vision --}}
-            <div class="text-center my-20 border rounded-xl p-8 md:p-20">
-                <h3 class="text-2xl mb-5">Our Mission</h3>
+            <div class="text-center my-20 border border-indigo-600 rounded-xl p-8 md:p-20">
+                <h3 class="text-2xl mb-5 underline decoration-indigo-600">Our Mission</h3>
                 <p class="text-gray-500">Leverage software innovation to propel small business success, transform education,
                     and build an equitable society</p>
 
-                <h3 class="text-2xl mb-5 mt-5">Our Vision</h3>
+                <h3 class="text-2xl mb-5 mt-5 underline decoration-indigo-600">Our Vision</h3>
                 <p class="text-gray-500">To be a catalyst for positive social change, leveraging the power of technology to
                     address critical issues and build a better future</p>
             </div>
