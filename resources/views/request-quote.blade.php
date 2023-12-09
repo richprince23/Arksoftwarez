@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pricing Plans')
+@section('title', 'Request A Quote')
 
 @section('navbar-title', 'ARK Softwarez')
 
@@ -171,7 +171,7 @@
             }
         });
 
-       
+
     });
 </script>
 

@@ -10,17 +10,34 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
+    {{-- Navbar --}}
     <nav class="bg-indigo-600 p-4 flex justify-between items-center">
-        <div class="text-white font-bold text-2xl"> <a href="/"> @yield('navbar-title', 'ARK Softwarez')</a></div>
-        <div class="text-white">
+        <div class="text-white font-bold text-2xl">
+            <a href="/"> @yield('navbar-title', 'ARK Softwarez')</a>
+        </div>
+        <!-- Toggle button for small screens -->
+        <button id="menu-toggle" class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <div class="text-white hidden md:flex">
             <a href="/about" class="p-2 hover:underline">About</a>
             <a href="/pricing" class="p-2 hover:underline">Pricing</a>
-            <a href="#" class="p-2 hover:underline">Portfolio</a>
-            <a href="#" class="p-2 hover:underline">Contact</a>
+            <a href="/portfolio" class="p-2 hover:underline">Portfolio</a>
+            <a href="/contact" class="p-2 hover:underline">Contact</a>
         </div>
     </nav>
+    
+    <!-- Mobile navigation menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden bg-indigo-600 text-white p-4">
+        <a href="/about" class="block py-2 hover:underline">About</a>
+        <a href="/pricing" class="block py-2 hover:underline">Pricing</a>
+        <a href="/portfolio" class="block py-2 hover:underline">Portfolio</a>
+        <a href="/contact" class="block py-2 hover:underline">Contact</a>
+    </div>
 
     <!-- Content Section -->
     <div class="container mx-auto">
@@ -84,6 +101,20 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+    // const button = document.getElementById('navbarToggle');
+    // const menu = document.getElementById('navbarMenu');
+  
+    // button.addEventListener('click', () => {
+    //   menu.classList.toggle('hidden'); 
+    // })
+
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 
