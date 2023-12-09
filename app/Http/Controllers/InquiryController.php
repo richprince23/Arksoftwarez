@@ -41,4 +41,43 @@ class InquiryController extends Controller
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 
+    // get all inquiries and display them in the admin panel
+
+    public function index()
+    {
+        $inquiries = Inquiry::all();
+        return view('admin.inquiry', compact('inquiries'));
+    }
+
+    /**
+     * Delete an inquiry
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $inquiry = Inquiry::find($id);
+        $inquiry->delete();
+
+        return redirect()->back()->with('success', 'Inquiry deleted successfully!');
+    }
+
+    /**
+     * Reply to an inquiry
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function reply(Request $request, $id)
+    {
+        $inquiry = Inquiry::find($id);
+        $inquiry->reply = $request->reply;
+        $inquiry->save();
+        // Send reply email
+        // Mail::to($inquiry->email)->send(new InquiryReplied($inquiry));
+
+        return redirect()->back()->with('success', 'Inquiry replied successfully!');
+    }
 }

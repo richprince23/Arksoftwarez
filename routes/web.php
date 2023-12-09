@@ -14,11 +14,64 @@ use App\Http\Controllers\QuoteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+//admin routes
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/team', function () {
+        return view('admin.team');
+    })->name('admin.team');
+
+    // inquiry
+    Route::get('/inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
+    Route::get('/inquiries/{id}', [InquiryController::class, 'show'])->name('admin.inquiries.show');
+    Route::delete('/inquiries/delete/{id}', [InquiryController::class,'destroy'])->name('admin.inquiries.destroy');
+    //reply
+    Route::post('/inquiries/reply/{id}', [InquiryController::class, 'reply'])->name('admin.inquiries.reply');
+
+    Route::get('/quotes', function () {
+        return view('admin.quote');
+    })->name('admin.quotes');
+    Route::get('/messages', function () {
+        return view('admin.messages');
+    });
+    Route::get('/portfolio', function () {
+        return view('admin.portfolio');
+    })->name('admin.portfolio');
+
+    Route::get('/news', function () {
+        return view('admin.news');
+    })->name('admin.news');
+
+    Route::get('/news', function () {
+        return view('admin.users');
+    })->name('admin.users');
+
+    Route::get('/settings', function () {
+        return view('admin.settings');
+    });
+    Route::get('/login', function () {
+        return view('admin.login');
+    });
+    Route::get('/register', function () {
+        return view('admin.register');
+    });
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+});
+
+
 // Page routes
 
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/admin', function () {
+    return view('admin.home');
+})->name('admin.home');
 
 Route::get('/about', function(){
     return view('about');
