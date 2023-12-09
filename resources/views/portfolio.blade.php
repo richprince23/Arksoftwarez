@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us')
+@section('title', 'Porfolio')
 
 @section('navbar-title', 'ARK Softwarez')
 
@@ -8,27 +8,45 @@
 
 <header class="max-w-lg mx-auto mt-12 text-center">
     <h1 class="text-5xl mb-2">Apps Powered By Our Platform</h1>
-    <p class="text-xl text-gray-500">Thousands of startups and enterprises build their apps faster with us.</p>
+    <p class="text-xl text-gray-500">Hundreds of startups and schools build their apps faster with us.</p>
   </header>
 
   <!-- Portfolio Gallery -->
   <section class="max-w-6xl mx-auto my-20">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-5" >
 
       <!-- App 1 -->
-      <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative">
-        <img src="app1.jpg" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
+      <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative ">
+        <img src="{{asset('images/samples/mathsaide.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
         <div class="bg-gray-900 bg-opacity-50 absolute inset-0 flex justify-center items-center text-white font-bold text-3xl">
-          App Name
+          MathsAide
         </div>
       </a>
 
       <!-- App 2 -->
       <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative">
-        <img src="app2.jpg" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
+        <img src="{{asset('images/samples/koneqt.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
         <div class="bg-gray-900 bg-opacity-50 absolute inset-0 flex justify-center items-center text-white font-bold text-3xl">
-          App Name
+          Infoctess Koneqt
+        </div>
+      </a>
+      <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative">
+        <img src="{{asset('images/samples/prev.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
+        <div class="bg-gray-900 bg-opacity-50 absolute inset-0 flex justify-center items-center text-white font-bold text-3xl">
+          Homstel
+        </div>
+      </a>
+      <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative">
+        <img src="{{asset('images/samples/bukyia.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
+        <div class="bg-gray-900 bg-opacity-50 absolute inset-0 flex justify-center items-center text-white font-bold text-3xl">
+          Bukyia
+        </div>
+      </a>
+      <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative">
+        <img src="{{asset('images/samples/doc.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
+        <div class="bg-gray-900 bg-opacity-50 absolute inset-0 flex justify-center items-center text-white font-bold text-3xl">
+          HealthTec
         </div>
       </a>
 
