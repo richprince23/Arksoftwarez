@@ -42,5 +42,9 @@ Route::get('/portfolio', function(){
     return view('portfolio');
 });
 
+// controller actions
 
+//conatct/ inquiry
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
 
