@@ -9,12 +9,12 @@
     <!-- Inquiry Form -->
     <section class="max-w-2xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
         <h2 class="text-3xl font-semibold mb-6">App Development Inquiry Form</h2>
-        <form id="inquiryForm" action="{{ route('quote.submit') }}" method="POST" class="space-y-4">
+        <form id="inquiryForm" action="{{ route('request-quote.submit') }}" method="POST" class="space-y-4">
             @csrf
             <!-- Type of App -->
             <div>
                 <label for="appType" class="block text-sm font-medium text-gray-700">Type of App</label>
-                <select id="appType" name="appType" class="mt-1 p-2 w-full border rounded-md" required>
+                <select id="appType" name="app_type" class="mt-1 p-2 w-full border rounded-md" required>
                     <option value="web">Web App</option>
                     <option value="mobile">Mobile App</option>
                     <option value="desktop">Desktop App</option>
@@ -66,12 +66,27 @@
                     </div>
                 </div>
             </div>
+            {{-- selected pacakeg --}}
+            <div>
+                <label for="package" class="block text-sm font-medium text-gray-700">Package</label>
+                <select id="package" name="package" class="mt-1 p-2 w-full border rounded-md" required>
+                    <option value="basic">Starter</option>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Enterprise</option>
+                </select>
+            </div>
 
+            {{-- app name --}}
+            <div>
+                <label for="appName" class="block text-sm font-medium text-gray-700">App Name</label>
+                <input type="text" id="appName" name="app_name" class="mt-1 p-2 w-full border rounded-md"
+                    required>
+            </div>
 
             <!-- Business Name -->
             <div>
                 <label for="businessName" class="block text-sm font-medium text-gray-700">Business Name</label>
-                <input type="text" id="businessName" name="businessName" class="mt-1 p-2 w-full border rounded-md"
+                <input type="text" id="businessName" name="business_name" class="mt-1 p-2 w-full border rounded-md"
                     required>
             </div>
 
@@ -79,7 +94,7 @@
             <div>
                 <label for="businessDetails" class="block text-sm font-medium text-gray-700">Other Business
                     Details</label>
-                <textarea id="businessDetails" name="businessDetails" class="mt-1 p-2 w-full border rounded-md resize-none"
+                <textarea id="businessDetails" name="business_details" class="mt-1 p-2 w-full border rounded-md resize-none"
                     rows="4" required></textarea>
             </div>
 
@@ -87,7 +102,7 @@
             <div>
                 <label for="appDescription" class="block text-sm font-medium text-gray-700">Detailed App
                     Description</label>
-                <textarea id="appDescription" name="appDescription" class="mt-1 p-2 w-full border rounded-md resize-none"
+                <textarea id="appDescription" name="app_description" class="mt-1 p-2 w-full border rounded-md resize-none"
                     rows="4" required></textarea>
             </div>
 
@@ -110,9 +125,9 @@
             <div>
                 <label for="hasDomain" class="block text-sm font-medium text-gray-700">Do you have a domain name?</label>
                 <div class="mt-1 flex items-center">
-                    <input type="radio" id="hasDomainYes" name="hasDomain" value="yes" class="mr-2">
+                    <input type="radio" id="hasDomainYes" name="has_domain" value="yes" class="mr-2">
                     <label for="hasDomainYes">Yes</label>
-                    <input type="radio" id="hasDomainNo" name="hasDomain" value="no" class="ml-4 mr-2">
+                    <input type="radio" id="hasDomainNo" name="has_domain" value="no" class="ml-4 mr-2">
                     <label for="hasDomainNo">No</label>
                 </div>
             </div>
@@ -120,7 +135,7 @@
             <!-- Domain Name Input (Conditional) -->
             <div id="domainInput" class="hidden">
                 <label for="domainName" class="block text-sm font-medium text-gray-700">Provide your domain name</label>
-                <input type="text" id="domainName" name="domainName" class="mt-1 p-2 w-full border rounded-md"
+                <input type="text" id="domainName" name="domain_name" class="mt-1 p-2 w-full border rounded-md"
                     inputmode="url">
             </div>
 
@@ -161,22 +176,26 @@
                 });
             });
 
-            // Phone number input formatting with libphonenumber
-            const phoneInput = document.getElementById('phone');
-            const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
+            // function to make mobilePlatform required if appType is mobile and vice versa
+            function makeRequired(field, required) {
+                field.required = required;
+            }
 
-            phoneInput.addEventListener('input', function() {
-                const value = phoneInput.value;
-                try {
-                    const phoneNumber = phoneUtil.parseAndKeepRawInput(value, 'ZZ');
-                    const formattedNumber = phoneUtil.format(phoneNumber, libphonenumber.PhoneNumberFormat
-                        .INTERNATIONAL);
-                    phoneInput.setCustomValidity('');
-                    phoneInput.value = formattedNumber;
-                } catch (e) {
-                    phoneInput.setCustomValidity('Invalid phone number');
-                }
+            // Event listener for appType change
+            appTypeSelect.addEventListener('change', function () {
+            const selectedType = appTypeSelect.value;
+
+            // // Show/hide platform selection based on the selected Type of App
+            // mobilePlatforms.classList.toggle('hidden', selectedType !== 'mobile');
+            // desktopPlatforms.classList.toggle('hidden', selectedType !== 'desktop');
+
+            // Set or remove the required attribute based on the selected type
+            const radioButtons = document.querySelectorAll('input[name="mobilePlatform"]');
+            radioButtons.forEach(function (radio) {
+                radio.required = selectedType === 'mobile';
             });
+        });
+
 
 
         });

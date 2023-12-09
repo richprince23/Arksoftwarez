@@ -23,17 +23,17 @@ class InquiryController extends Controller
             'message' => 'required|string',
         ]);
 
-        Inquiry::create($validatedData);
+        // Inquiry::create($validatedData);
 
         // TODO: send email here
 
-        // $inquiry = new Inquiry();
-        // $inquiry->first_name = $validatedData['first_name'];
-        // $inquiry->last_name = $validatedData['last_name'];
-        // $inquiry->email = $validatedData['email'];
-        // $inquiry->subject = $validatedData['subject'];
-        // $inquiry->message = $validatedData['message'];
-        // $inquiry->save();
+        $inquiry = new Inquiry();
+        $inquiry->first_name = $validatedData['first_name'];
+        $inquiry->last_name = $validatedData['last_name'];
+        $inquiry->email = $validatedData['email'];
+        $inquiry->subject = $validatedData['subject'];
+        $inquiry->message = $validatedData['message'];
+        $inquiry->save();
 
         // Mail::to($inquiry->email)->send(new InquirySubmitted($inquiry));
 

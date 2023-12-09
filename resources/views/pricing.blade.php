@@ -8,17 +8,17 @@
 
     <!-- Page Header -->
   <header class="max-w-lg mx-auto mt-12 text-center">
-    <h1 class="text-5xl">Pricing Plans</h1> 
+    <h1 class="text-5xl">Pricing Plans</h1>
     <p class="text-xl text-gray-500 mt-4">Flexible plans to meet your app development needs.</p>
   </header>
 
   <!-- Pricing Table -->
-  <section class="max-w-5xl  mx-5 md:mx-auto my-20">    
+  <section class="max-w-5xl  mx-5 md:mx-auto my-20">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Small Biz Plan -->
         <div class="flex flex-col justify-between border rounded-lg p-8 text-center mb-8">
             <div>
-                <h2 class="text-2xl font-medium mb-4">Starter</h2>  
+                <h2 class="text-2xl font-medium mb-4">Starter</h2>
                 <p class="text-5xl font-bold mb-8">$800</p>
                 {{-- <p class="text-gray-500 mb-8">One Off</p> --}}
                 <hr class="mb-5">
@@ -39,24 +39,24 @@
                 </div>
             </div>
 
-            
-            <a href="#" class="bottom-0 inline-block bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-6">Start Building</a>
+
+            <a href="/request-quote" class="bottom-0 inline-block bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-6">Start Building</a>
         </div>
 
     <!-- Medium Biz Plan -->
         <div class="flex flex-col justify-between border border-indigo-600 border-2 rounded-lg p-8 text-center">
             <div>
                 {{-- <span class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Most Popular</span> --}}
-            
+
                 <h2 class="text-2xl font-medium mb-4">Standard</h2>
-            
+
                 <p class="text-5xl font-bold mb-8">$1,500</p>
-            
+
                 {{-- <p class="text-gray-500 mb-8">One Off</p> --}}
                 <hr class="mb-5">
-            
+
                 <div class="text-left">
-                    
+
                     <div class="text-left">
                         <div class="flex items-center mb-4">
                             <span>Ideal for apps with more complex features and functionality</span>
@@ -74,21 +74,21 @@
                         <x-price-feature caption="25 GB Cloud Storage"/>
                         <x-price-feature caption="3 Free revisions"/>
                     </div>
-                
+
                 </div>
             </div>
             <a href="/request-quote" class="bottom-0 inline-block bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-6">Get Started</a>
-  
+
         </div>
-  
+
     <!-- Enterprise Plan -->
         <div class="flex flex-col justify-between border rounded-lg p-8 text-center mb-8">
             <div>
-                <h2 class="text-2xl font-medium mb-4">Enterprise</h2>  
+                <h2 class="text-2xl font-medium mb-4">Enterprise</h2>
                 <p class="text-5xl font-bold mb-8">$3,200</p>
                 {{-- <p class="text-gray-500 mb-8">One Off</p> --}}
                 <hr class="mb-5">
-        
+
                 <div class="text-left">
                     <div class="flex items-center mb-4">
                         <span>Ideal for complex apps with high-level features and functionality</span>
@@ -106,22 +106,22 @@
                     <x-price-feature caption="75 GB Cloud Storage"/>
                 </div>
             </div>
-            <a href="#" class="bottom-0 inline-block bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-6">Start Building</a>
+            <a href="/request-quote" class="bottom-0 inline-block bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-6">Start Building</a>
         </div>
   </div>
-  
+
     <p class="text-gray-500 text-center mt-6 text-sm">Have specific requirements? <a href="#" class="text-indigo-500 font-medium py-3">Contact us</a> to tailor a custom plan.</p>
-  </section> 
-  
+  </section>
+
   <!-- Additional Details -->
   <section class="bg-gray-100 p-8">
-  
+
     <div class="max-w-3xl mx-auto">
-  
+
       <!-- Additional Fees -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Additional Fees</h3>
-        
+
         <div class="space-y-2">
           <div class="flex">
             <svg class="w-6 h-6 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -146,39 +146,39 @@
 
         </div>
       </div>
-  
+
       <!-- Payment Terms -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Payment Terms</h3>
-  
+
         <div class="space-y-2">
           <div class="flex">
             <svg class="w-6 h-6 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-            <p>30% deposit upon signing</p>  
+            <p>30% deposit upon signing</p>
           </div>
           <div class="flex">
             <svg class="w-6 h-6 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-            <p>30% due upon development milestone completion</p>  
+            <p>30% due upon development milestone completion</p>
           </div>
           <div class="flex">
             <svg class="w-6 h-6 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-            <p>40% due upon project completion</p>  
+            <p>40% due upon project completion</p>
           </div>
-          
-          
+
+
           <!-- payment term items -->
-          
+
         </div>
       </div>
-  
+
       <!-- Disclaimer -->
       <div>
         <p class="text-gray-500 text-sm">
           This is a sample pricing plan. Some of these fees may not be applicable to you. Actual prices may vary based on project needs. We recommend contacting us for a free consultation and customized quote.
         </p>
       </div>
-  
+
     </div>
-    
+
   </section>
 @endsection

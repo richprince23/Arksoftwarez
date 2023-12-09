@@ -102,9 +102,9 @@
         <div class="container mx-auto px-6 py-20 text-center text-white">
             <h2 class="text-4xl font-bold mb-2">Join the multitude of businesses and schools already building with us</h2>
             <p class="mb-8 text-xl opacity-90">Contact us today to start building your apps faster and smarter!</p>
-            <button
+            <a href="/request-quote"
                 class="py-3 px-8 text-lg bg-white hover:bg-gray-100 active:bg-gray-200 rounded text-indigo-600 font-semibold">Get
-                Started</button>
+                Started</a>
         </div>
     </section>
 @endsection

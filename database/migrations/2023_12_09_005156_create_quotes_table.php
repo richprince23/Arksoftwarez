@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('app_type');
             $table->string('platform')->nullable();
+            $table->string('package')->nullable();
+            $table->string('app_name');
             $table->string('business_name');
             $table->text('business_details');
             $table->text('app_description');

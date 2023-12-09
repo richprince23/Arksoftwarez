@@ -17,13 +17,13 @@
     <form action="{{ route('contact.submit') }}" method="post" class="validate">
         @csrf
       <div class="grid grid-cols-2 gap-4">
-        <input class="border border-gray-400 p-2" type="text" placeholder="First Name">
-        <input class="border border-gray-400 p-2" type="text" placeholder="Last Name">
-        <input class="border border-gray-400 p-2 col-span-2" type="email" placeholder="Email Address">
+        <input id="firstName" class="border border-gray-400 p-2" type="text" placeholder="First Name" name="first_name" required>
+        <input id="lastName" class="border border-gray-400 p-2" type="text" placeholder="Last Name" name="last_name" required>
+        <input id="email" class="border border-gray-400 p-2 col-span-2" type="email" name="email" placeholder="Email Address" required>
       </div>
-      <input class="border border-gray-400 p-2 mt-4 w-full" type="text" placeholder="Subject">
-      <textarea class="border border-gray-400 p-2 mt-4 w-full" rows="4" placeholder="How can we help?"></textarea>
-      <button class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 mt-4">Submit</button>
+      <input id="subject" class="border border-gray-400 p-2 mt-4 w-full" type="text" name="subject" placeholder="Subject" required>
+      <textarea  id="message" class="border border-gray-400 p-2 mt-4 w-full" rows="4" name="message" placeholder="How can we help?" required></textarea>
+      <button id="submitBtn" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 mt-4" type="submit">Submit</button>
     </form>
   </div>
 
@@ -68,4 +68,58 @@
     </div>
 
   </section>
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.validate');
+    const inputs = document.querySelectorAll('.validate input, .validate textarea');
+
+
+
+    // validation function
+    function validate(field, regex) {
+      if (regex.test(field.value)) {
+        field.className = 'valid';
+      } else {
+        field.className = 'invalid';
+      }
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener('keyup', (e) => {
+        // console.log(patterns[e.target.attributes.name.value]);
+        validate(e.target, patterns[e.target.attributes.name.value]);
+      });
+    });
+
+    // form.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+
+    //     fetch('/contact', {
+    //         method: 'post',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json, text-plain, */*',
+    //             'X-Requested-With': 'XMLHttpRequest',
+    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    //         },
+    //         body: JSON.stringify({
+    //             firstName: document.querySelector('#firstName').value,
+    //             lastName: document.querySelector('#lastName').value,
+    //             email: document.querySelector('#email').value,
+    //             subject: document.querySelector('#subject').value,
+    //             message: document.querySelector('#message').value
+    //         })
+    //     }).then((result) => {
+    //         alert('Message sent successfully');
+    //     }).catch((err) => {
+    //         alert('An error occured. Please try again later');
+    //     });
+    // });
+
+
+
+    });
+
+  </script>
 @endsection
