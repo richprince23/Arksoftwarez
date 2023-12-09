@@ -42,7 +42,8 @@
                             </button>
                         </form>
                         {{--  reply --}}
-                        <a href="{{ route('admin.inquiries.reply', $inquiry->id) }}">
+                        {{-- <a href="{{ route('admin.inquiries.reply', $inquiry->id) }}" id="openModalButton"> --}}
+                        <a href="#" id="openModalButton">
                             <span class="material-symbols-outlined">
                                 reply
                             </span>
@@ -57,4 +58,35 @@
             {{ $inquiries->count() == 0 ? 'No Inquiries recieved' : ' No. of Inquiries: ' . $inquiries->count() }}
         </i>
     </div>
+    <?php $val = false; ?>
+
+    <x-alert-modal title="Send Reply" details="Send new messaage" show="{{$val}}"/>
+    <script>
+        document.addEventListener("DOMContentloaded", function() {
+
+            // // Get references to modal and button
+            // const modal = document.querySelector('.alertModal');
+            // const openModalButton = document.getElementById('openModalButton');
+
+            // Add an event listener to the button
+            openModalButton.addEventListener('click', () => {
+                alert('open')
+
+                // Show the modal by adding the necessary classes
+                modal.classList.toggle('hidden');
+
+            });
+
+            // const cancelButton = document.querySelector('.cancelBtn');
+            // // const modal = document.querySelector('.alertModal');
+
+            // cancelButton.addEventListener('click', () => {
+            //     // Close the modal by removing the necessary classes
+            //     alert("close");
+            //     modal.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
+            // });
+
+
+        });
+    </script>
 @endsection
