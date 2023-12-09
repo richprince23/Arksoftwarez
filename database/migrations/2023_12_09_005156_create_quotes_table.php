@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
+            $table->string('app_type');
+            $table->string('platform')->nullable();
+            $table->string('business_name');
+            $table->text('business_details');
+            $table->text('app_description');
+            $table->string('email');
+            $table->string('phone');
+            $table->enum('has_domain', ['yes', 'no']);
+            $table->string('domain_name')->nullable();
             $table->timestamps();
         });
     }

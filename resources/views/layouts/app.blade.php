@@ -30,7 +30,7 @@
             <a href="/contact" class="p-2 hover:underline">Contact</a>
         </div>
     </nav>
-    
+
     <!-- Mobile navigation menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden bg-indigo-600 text-white p-4">
         <a href="/about" class="block py-2 hover:underline">About</a>
@@ -38,6 +38,13 @@
         <a href="/portfolio" class="block py-2 hover:underline">Portfolio</a>
         <a href="/contact" class="block py-2 hover:underline">Contact</a>
     </div>
+
+    <!-- Success message -->
+    @if (session('success'))
+        <div class="bg-green-200 p-4">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <!-- Content Section -->
     <div class="container mx-auto">
@@ -106,9 +113,9 @@
   <script>
     // const button = document.getElementById('navbarToggle');
     // const menu = document.getElementById('navbarMenu');
-  
+
     // button.addEventListener('click', () => {
-    //   menu.classList.toggle('hidden'); 
+    //   menu.classList.toggle('hidden');
     // })
 
     document.getElementById('menu-toggle').addEventListener('click', function () {

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\QuoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,9 @@ Route::get('/portfolio', function(){
 // controller actions
 
 //conatct/ inquiry
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
-Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
+Route::get('/contact', [InquiryController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [InquiryController::class, 'submitForm'])->name('contact.submit');
 
+// Request Quote
+Route::get('/request-quote', [QuoteController::class, 'showForm'])->name('request-quote.form');
+Route::post('/request-quote', [QuoteController::class,'submitForm'])->name('request-quote.submit');
