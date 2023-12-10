@@ -13,12 +13,12 @@ class AlertModal extends Component
      */
     public $title;
     public $details;
-    public $show;
-    public function __construct($title, $details, $show)
+    // public $show;
+    public function __construct($title, $details)
     {
         $this->title = $title;
         $this->details = $details;
-        $this->show = $show;
+        // $this->show = $show;
     }
 
     /**

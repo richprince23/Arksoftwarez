@@ -59,8 +59,9 @@
         </i>
     </div>
     <?php $val = false; ?>
-
-    <x-alert-modal title="Send Reply" details="Send new messaage" show="{{$val}}"/>
+    <div class="alert">
+        <x-alert-modal title="Send Reply" details="Send new messaage"/>
+    </div>
     <script>
         document.addEventListener("DOMContentloaded", function() {
 
