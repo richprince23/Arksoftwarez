@@ -30,6 +30,7 @@
         </button>
         <div class="text-white hidden md:flex">
             <a href="/about" class="p-2 hover:underline">About</a>
+            <a href="/blog" class="p-2 hover:underline">Blog</a>
             <a href="/pricing" class="p-2 hover:underline">Pricing</a>
             <a href="/portfolio" class="p-2 hover:underline">Portfolio</a>
             <a href="/contact" class="p-2 hover:underline">Contact</a>
@@ -39,6 +40,7 @@
     <!-- Mobile navigation menu (hidden by default) -->
     <div id="mobile-menu" class="md:hidden bg-indigo-600 text-white p-4">
         <a href="/about" class="block py-2 hover:underline">About</a>
+        <a href="/blog" class="p-2 hover:underline">Blog</a>
         <a href="/pricing" class="block py-2 hover:underline">Pricing</a>
         <a href="/portfolio" class="block py-2 hover:underline">Portfolio</a>
         <a href="/contact" class="block py-2 hover:underline">Contact</a>
@@ -79,7 +81,7 @@
           </div>
           <div class="text-sm">
             <h3 class="font-medium mb-4">Company</h3>
-            <a href="#">About</a>
+            <a href="/about">About</a>
             <a href="#">Investor relations</a>
             <a href="#">Jobs</a>
             <a href="#">Press kit</a>
@@ -88,7 +90,7 @@
             <h3 class="font-medium mb-4">Community</h3>
             <a href="#">Forums</a>
             <a href="#">Code snippets</a>
-            <a href="#">Blog</a>
+            <a href="/blog">Blog</a>
           </div>
         </div>
       </div>

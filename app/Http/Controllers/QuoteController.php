@@ -75,4 +75,14 @@ class QuoteController extends Controller
          return redirect()->back()->with('success', 'Quote deleted successfully!');
      }
 
+     /**
+      * Get and display quote details
+      * @param int $id
+      * return \Illuminate\Http\RedirectResponse
+      */
+      public function viewQuote($id){
+        $quote = Quote::find($id);
+        return view('admin.view-quote', compact('quote'));
+      }
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes');
+    Route::get('/view-quotes/{id}', [QuoteController::class, 'viewQuote'])->name('admin.view-quote');
+
     Route::get('/messages', function () {
         return view('admin.messages');
     });
@@ -42,11 +45,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/portfolios', [PortfolioController::class, 'store'])->name('portfolio.store');
     Route::delete('/portfolios/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
     Route::get('/news', function () {
         return view('admin.news');
     })->name('admin.news');
 
-    Route::get('/news', function () {
+    Route::get('/users', function () {
         return view('admin.users');
     })->name('admin.users');
 
@@ -102,6 +108,7 @@ Route::get('/portfolio', [PortfolioController::class, 'list'])->name('portfolio.
 
 // controller actions
 
+
 //conatct/ inquiry
 Route::get('/contact', [InquiryController::class, 'showForm'])->name('contact.form');
 Route::post('/contact', [InquiryController::class, 'submitForm'])->name('contact.submit');
@@ -109,3 +116,5 @@ Route::post('/contact', [InquiryController::class, 'submitForm'])->name('contact
 // Request Quote
 Route::get('/request-quote', [QuoteController::class, 'showForm'])->name('request-quote.form');
 Route::post('/request-quote', [QuoteController::class,'submitForm'])->name('request-quote.submit');
+
+Route::get('/news', [PostController::class, 'index'])->name('posts.list');

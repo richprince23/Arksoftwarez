@@ -103,7 +103,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/news" class="flex text-gray-400 py-2 px-3 rounded hover:text-white">
+                        <a href="{{route('admin.news')}}" class="flex text-gray-400 py-2 px-3 rounded hover:text-white">
                             <span class="material-symbols-outlined mr-2">
                                 newspaper
                                 </span>
@@ -131,7 +131,7 @@
 
 
             <!-- Page content -->
-            <main class="p-6 flex-1">
+            <main class="p-6 flex-1 overflow-y-auto">
                 <!-- Success message -->
                 @if (session('success'))
                     <div class="bg-green-200 p-4">
