@@ -41,6 +41,11 @@ class Handler extends ExceptionHandler
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             return response()->view('errors.404', [], 404);
         }
+        if ($this->isHttpException($exception) && $exception->getCode() == 500) {
+            // Custom response or view for 500 error
+            return response()->view('errors.500', [], 500);
+        }
+
 
         return parent::render($request, $exception);
     }
