@@ -58,14 +58,17 @@
 
             <!-- Founders -->
             <h3 class="text-2xl my-20 text-center">Our Team</h3>
-            <div class="flex-column md:flex md:flex-row justify-center">
+            <div class="flex-column md:flex md:flex-row flex-wrap justify-center">
+                @foreach ($team as $member)
                 <div class="text-center m-5">
-                    <img src="{{ asset('images/team/aikins.jpg') }}" alt="founder photo"
+                    <img src="{{ asset($member->image) }}" alt="founder photo"
                         class="w-48 h-48 rounded-full inline-block mb-2">
-                    <p class="text-xl font-medium">Richard Kweku Aikins</p>
-                    <p class="italic text-gray-500">Lead Software Engineer</p>
+                    <p class="text-xl font-medium">{{$member->name}}</p>
+                    <p class="italic text-gray-500">{{$member->position}}</p>
                 </div>
-                <div class="text-center m-5">
+
+                @endforeach
+                {{-- <div class="text-center m-5">
                     <img src="{{ asset('images/team/aba.jpg') }}" alt="founder photo"
                         class="w-48 h-48 rounded-full inline-block mb-2">
                     <p class="text-xl font-medium">Maame Aba Crentsil</p>
@@ -82,7 +85,7 @@
                         class="w-48 h-48 rounded-full inline-block mb-2">
                     <p class="text-xl font-medium">Desmond Adabe</p>
                     <p class="italic text-gray-500">Software Developer</p>
-                </div>
+                </div> --}}
             </div>
         </div>
 

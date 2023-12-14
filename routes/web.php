@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
+use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +20,15 @@ use App\Http\Controllers\TeamController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes(['register' => false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //admin routes
 
-Route::group(['prefix' => 'admin'], function () {
-
+Route::middleware('auth')->prefix('admin')->group( function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.home');
     // Team
     Route::get('/team',[TeamController::class, 'index'])->name('admin.team');
     Route::post('/team',[TeamController::class, 'store'])->name('team.store');
@@ -80,12 +86,13 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/admin', function () {
-    return view('admin.home');
-})->name('admin.home');
+// Route::get('/admin', function () {
+//     return view('admin.home');
+// })->name('admin.home');
 
 Route::get('/about', function(){
-    return view('about');
+    $team = Team::all();
+    return view('about', compact('team'));
 });
 
 Route::get('/pricing', function(){
@@ -98,14 +105,6 @@ Route::get('/contact', function(){
 
 Route::get('/request-quote', function(){
     return view('request-quote');
-});
-
-Route::get('/contact', function(){
-    return view('contact');
-});
-
-Route::get('/portfolio', function(){
-    return view('portfolio');
 });
 
 Route::get('/portfolio', [PortfolioController::class, 'list'])->name('portfolio.list');
@@ -124,3 +123,4 @@ Route::post('/request-quote', [QuoteController::class,'submitForm'])->name('requ
 //  Posts
 Route::get('/blog', [PostController::class, 'listPosts'])->name('posts.list');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+

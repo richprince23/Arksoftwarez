@@ -29,7 +29,7 @@ class TeamController extends Controller
         Team::create([
             'name' => $request->input('name'),
             'position' => $request->input('position'),
-            'image' => 'images/team/'.$imageName,,
+            'image' => 'images/team/'.$imageName,
         ]);
 
         return redirect()->route('admin.team')->with('success', 'Team member added successfully.');
@@ -40,7 +40,12 @@ class TeamController extends Controller
         $teamMember = Team::findOrFail($id);
         // Delete the associated image if it exists
         if ($teamMember->image) {
-            unlink(public_path($teamMember->image));
+            try {
+                unlink(public_path($teamMember->image));
+                //code...
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
         }
 
         $teamMember->delete();
