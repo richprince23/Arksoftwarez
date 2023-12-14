@@ -2,7 +2,7 @@
 @section('title', 'Admin | Manage Portfolios')
 
 @section('content')
-    <div class="container mx-auto my-10">
+    <div class="container mx-auto ">
         <!-- Add Portfolio Form -->
         <form action="{{ route('portfolio.store') }}" method="POST" enctype="multipart/form-data" class="mb-8">
             @csrf
@@ -25,7 +25,7 @@
         </form>
 
         <!-- Portfolio Table -->
-        <table class="min-w-full bg-white border border-gray-300">
+        <table class="min-w-full bg-white border border-gray-300 ">
             <thead>
                 <tr class="bg-gray-100">
                     <th class="py-2 px-4 border-b">Image</th>
@@ -37,7 +37,7 @@
                 @foreach($portfolios as $portfolio)
                     <tr>
                         <td class="py-2 px-4 border-b">
-                            <img src="{{ asset($portfolio->image) }}" alt="{{ $portfolio->name }}" class="w-16 h-16 object-cover">
+                            <img src="{{ asset($portfolio->image) }}" alt="{{ $portfolio->name }}" class="w-8 h-8 object-cover">
                         </td>
                         <td class="py-2 px-4 border-b">{{ $portfolio->name }}</td>
                         <td class="py-2 px-4 border-b">
