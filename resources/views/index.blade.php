@@ -116,9 +116,9 @@
         <div class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold leading-tight text-white text-center">Start Building Your App Today</h2>
             <div class="mt-12 text-center">
-                <button
+                <a href="{{route('request-quote.form')}}"
                     class="inline-block bg-white hover:bg-gray-100 active:bg-gray-200 focus-visible:ring ring-indigo-300 text-indigo-600 text-lg font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Get
-                    Started</button>
+                    Started</a>
             </div>
         </div>
     </section>

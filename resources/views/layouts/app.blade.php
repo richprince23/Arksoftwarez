@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    @vite('resources/css/app.css')
+    <link rel="shortcut icon" href="{{asset('images/brand/ark_logo.png')}}" type="image/x-icon">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+
     <title>@yield('title', 'App Building Software Startup')</title>
 </head>
 
@@ -14,7 +18,7 @@
     {{-- Navbar --}}
     <nav class="bg-indigo-600 p-4 flex justify-between items-center">
         <div class="text-white font-bold text-2xl">
-            <a href="/"> @yield('navbar-title', 'ARK Softwarez')</a>
+            <a href="/" class="flex flex-row"><img src="{{asset('images/brand/ark_logo_white.png')}}" class="w-8 h-8 mx-5" alt="logo">  @yield('navbar-title', 'ARK Softwarez')</a>
         </div>
         <!-- Toggle button for small screens -->
         <button id="menu-toggle" class="md:hidden text-white">
@@ -57,7 +61,7 @@
     <div class="container mx-auto px-6 py-10 text-white">
       <div class="md:flex justify-between items-center">
         <div class="mb-6 md:mb-0">
-          <a href="#" class="text-2xl font-bold">ARK Softwarez</a>
+          <a href="#" class="text-2xl font-bold"><img src="{{asset('images/brand/BRAND_WHITE.png')}}" class="md:w-96 px-0 md:px-4" alt="logo"></a>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-y-4">
           <div class="text-sm">

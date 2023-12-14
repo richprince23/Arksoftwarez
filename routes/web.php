@@ -31,9 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
     //reply
     Route::post('/inquiries/reply/{id}', [InquiryController::class, 'reply'])->name('admin.inquiries.reply');
 
-    Route::get('/quotes', function () {
-        return view('admin.quote');
-    })->name('admin.quotes');
+
+    Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes');
     Route::get('/messages', function () {
         return view('admin.messages');
     });

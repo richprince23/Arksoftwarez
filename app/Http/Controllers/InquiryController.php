@@ -41,7 +41,10 @@ class InquiryController extends Controller
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 
-    // get all inquiries and display them in the admin panel
+    /**
+     get all inquiries and display them in the admin panel
+     *
+     */
 
     public function index()
     {

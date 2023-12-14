@@ -35,12 +35,12 @@
 
         <div class="text-center mb-8 md:mb-0">
           <h4 class="font-medium mb-4">Phone</h4>
-          <p class="text-lg text-gray-500">+233245001476</p>
+          <p class="text-lg text-gray-500"><a href="tel:+233245001476">+233245001476</a></p>
         </div>
 
         <div class="text-center mb-8 md:mb-0">
           <h4 class="font-medium mb-4">Email</h4>
-          <p class="text-lg text-gray-500">contact@arksoftwarez.com</p>
+          <p class="text-lg text-gray-500"><a href="mailto:hello@arksoftwarez.com">hello@arksoftwarez.com</a></p>
         </div>
 
         <div class="text-center mb-8 md:mb-0">

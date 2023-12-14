@@ -49,4 +49,30 @@ class QuoteController extends Controller
 
         return redirect()->back()->with('success', 'Your inquiry has been submitted successfully!');
     }
+
+    /**
+     get all inquiries and display them in the admin panel
+     *
+     */
+
+     public function index()
+     {
+        $quotes = Quote::all();
+         return view('admin.quote', compact('quotes'));
+     }
+
+     /**
+      * Delete an inquiry
+      *
+      * @param int $id
+      * @return \Illuminate\Http\RedirectResponse
+      */
+     public function destroy($id)
+     {
+         $quote = Quote::find($id);
+         $quote->delete();
+
+         return redirect()->back()->with('success', 'Quote deleted successfully!');
+     }
+
 }

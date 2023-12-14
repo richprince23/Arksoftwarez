@@ -9,47 +9,38 @@
     </div>
 
 
-    <table class="table-auto border-collapse border w-full rounded-lg">
-        <caption class="caption-top">
-            A list of all inquiries.
-        </caption>
+    <table class="min-w-full bg-white border border-gray-300">
         <thead>
-            <tr>
-                <th class="border border-indigo-600">Name</th>
-                <th class="border border-indigo-600">Email</th>
-                <th class="border border-indigo-600">Subject</th>
-                <th class="border border-indigo-600">Message</th>
-                <th class="border border-indigo-600">Action</th>
+            <tr class="bg-gray-100">
+                <th class="py-2 px-4 border-b">First Name</th>
+                <th class="py-2 px-4 border-b">Last Name</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                <th class="py-2 px-4 border-b">Subject</th>
+                <th class="py-2 px-4 border-b">Message</th>
             </tr>
         </thead>
-        <tbody class="border border-collapse border-indigo-600">
-            @foreach ($inquiries as $inquiry)
-                <tr>
-                    <td class="border border-collapse border-indigo-600 bg-slate-200">
-                        {{ $inquiry->first_name . ' ' . $inquiry->last_name }}</td>
-                    <td class="border border-collapse border-indigo-600 bg-slate-200">{{ $inquiry->email }}</td>
-                    <td class="border border-collapse border-indigo-600 bg-slate-200">{{ $inquiry->subject }}</td>
-                    <td class="border border-collapse border-indigo-600 bg-slate-200 hover:h-52">{{ $inquiry->message }}
-                    </td>
-                    <td class="border border-collapse border-indigo-600 bg-slate-200 flex justify-around">
-                        <form action="{{ route('admin.inquiries.destroy', $inquiry->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="p-0">
-                                <span class="material-symbols-outlined">
-                                    delete
-                                </span>
-                            </button>
-                        </form>
-                        {{--  reply --}}
-                        {{-- <a href="{{ route('admin.inquiries.reply', $inquiry->id) }}" id="openModalButton"> --}}
-                        <a href="#" id="openModalButton">
-                            <span class="material-symbols-outlined">
-                                reply
-                            </span>
-                        </a>
-                    </td>
+        <tbody>
+            @foreach($inquiries as $item)
+                <tr data-popover-target="popover-default{{$item->id}}">
+                    <td class="py-2 px-4 border-b">{{ $item->first_name}}</td>
+                    <td class="py-2 px-4 border-b">{{ $item['last_name'] }}</td>
+                    <td class="py-2 px-4 border-b">{{ $item['email'] }}</td>
+                    <td class="py-2 px-4 border-b">{{ $item['subject'] }}</td>
+
+                    <td class="py-2 px-4 border-b">{{ $item['message'] }}</td>
+
+
                 </tr>
+
+                <div data-popover id="popover-default{{$item->id}}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                    <div class="px-3 py-2 bg-indigo-600 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                        <h3 class="font-semibold text-white dark:text-white">{{ $item->subject }}</h3>
+                    </div>
+                    <div class="px-3 py-2">
+                        <p>{{ $item->message }}</p>
+                    </div>
+                    <div data-popper-arrow></div>
+                </div>
             @endforeach
         </tbody>
     </table>
@@ -58,8 +49,9 @@
             {{ $inquiries->count() == 0 ? 'No Inquiries recieved' : ' No. of Inquiries: ' . $inquiries->count() }}
         </i>
     </div>
+
     <?php $val = false; ?>
-    <div class="alert">
+    <div class="alert" hidden>
         <x-alert-modal title="Send Reply" details="Send new messaage"/>
     </div>
     <script>
