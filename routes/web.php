@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/messages', function () {
         return view('admin.messages');
     });
-    Route::get('/portfolio', function () {
-        return view('admin.portfolio');
-    })->name('admin.portfolio');
+
+    Route::get('/portfolios', [PortfolioController::class, 'index'])->name('admin.portfolio');
+    Route::post('/portfolios', [PortfolioController::class, 'store'])->name('portfolio.store');
+    Route::delete('/portfolios/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
     Route::get('/news', function () {
         return view('admin.news');
@@ -95,6 +97,8 @@ Route::get('/contact', function(){
 Route::get('/portfolio', function(){
     return view('portfolio');
 });
+
+Route::get('/portfolio', [PortfolioController::class, 'list'])->name('portfolio.list');
 
 // controller actions
 

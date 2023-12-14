@@ -16,6 +16,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-5" >
 
+        @foreach ($portfolios as $item)
+
+        @endforeach
       <!-- App 1 -->
       <a href="#" class="group h-96 block bg-gray-100 rounded-lg overflow-hidden relative ">
         <img src="{{asset('images/samples/mathsaide.png')}}" loading="lazy" alt="app image" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-200">
