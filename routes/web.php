@@ -5,6 +5,7 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,7 @@ use App\Http\Controllers\PostController;
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/team', function () {
-        return view('admin.team');
-    })->name('admin.team');
+    Route::get('/team',[TeamController::class, 'index'])->name('admin.team');
 
     // inquiry
     Route::get('/inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
@@ -34,6 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/inquiries/reply/{id}', [InquiryController::class, 'reply'])->name('admin.inquiries.reply');
 
 
+    // quotes/ request
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes');
     Route::get('/view-quotes/{id}', [QuoteController::class, 'viewQuote'])->name('admin.view-quote');
 
@@ -41,16 +41,17 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.messages');
     });
 
+    // Portfolio
     Route::get('/portfolios', [PortfolioController::class, 'index'])->name('admin.portfolio');
     Route::post('/portfolios', [PortfolioController::class, 'store'])->name('portfolio.store');
     Route::delete('/portfolios/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
+    // posts
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 
-    Route::get('/news', function () {
-        return view('admin.news');
-    })->name('admin.news');
+    Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.delete');
+    Route::get('/news', [PostController::class, 'index'])->name('admin.news');
 
     Route::get('/users', function () {
         return view('admin.users');
@@ -117,4 +118,6 @@ Route::post('/contact', [InquiryController::class, 'submitForm'])->name('contact
 Route::get('/request-quote', [QuoteController::class, 'showForm'])->name('request-quote.form');
 Route::post('/request-quote', [QuoteController::class,'submitForm'])->name('request-quote.submit');
 
-Route::get('/news', [PostController::class, 'index'])->name('posts.list');
+//  Posts
+Route::get('/blog', [PostController::class, 'listPosts'])->name('posts.list');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
