@@ -38,17 +38,18 @@ class PostController extends Controller
             'tags' => 'nullable|string',
         ]);
 
-        $imagePath = null;
+        $imageName = null;
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/posts');
+            $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images/posts'), $imageName);
         }
 
         $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'author' => Auth::user()->name ?? "Admin",
-            'image' => $imagePath,
+            'image' => 'images/posts/'.$imageName,
             'tags' => $request->tags
         ]);
 
@@ -67,7 +68,7 @@ class PostController extends Controller
 
         // Delete the associated image if it exists
         if ($post->image) {
-            $imagePath = storage_path("app/public/{$post->image}");
+            $imagePath = public_path("images/posts/{$post->image}");
             if (File::exists($imagePath)) {
                 File::delete($imagePath);
             }

@@ -23,7 +23,10 @@ use App\Http\Controllers\TeamController;
 
 Route::group(['prefix' => 'admin'], function () {
 
+    // Team
     Route::get('/team',[TeamController::class, 'index'])->name('admin.team');
+    Route::post('/team',[TeamController::class, 'store'])->name('team.store');
+    Route::delete('/team/{id}',[TeamController::class, 'destroy'])->name('team.destroy');
 
     // inquiry
     Route::get('/inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');

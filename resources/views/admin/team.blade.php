@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Admin | Team')
 
@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         @foreach ($teamMembers as $teamMember)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $teamMember->name }}</td>
                                 <td>{{ $teamMember->position }}</td>
                                 <td>
