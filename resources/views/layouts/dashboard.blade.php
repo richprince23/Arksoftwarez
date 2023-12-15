@@ -12,10 +12,10 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta name="keywords" content="software, business software, education software, productivity tools, learning solutions, software development">
-    <meta name="author" content="ARK Softwarez">
+    <meta name="author" content="Ark Softwarez">
 
     <!-- Open Graph Meta Tags (for social media sharing) -->
-    <meta property="og:title" content="ARK Softwarez - Software for Business and Education">
+    <meta property="og:title" content="Ark Softwarez - Software for Business and Education">
     <meta property="og:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
@@ -23,7 +23,7 @@
 
     <!-- Twitter Meta Tags (for Twitter card) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ARK SOftwarez - Software for Business and Education">
+    <meta name="twitter:title" content="Ark SOftwarez - Software for Business and Education">
     <meta name="twitter:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta name="twitter:image" content="{{ asset('images/brand/ark_logo.png') }}">
 
@@ -37,7 +37,7 @@
 <body>
     <div class=" h-screen ">
         <div class="p-3 m-0 bg-indigo-600 flex flex-row justify-between md:hidden">
-            <a href="/" class="text-white font-bold text-xl">ARK Softwarez</a>
+            <a href="/" class="text-white font-bold text-xl">Ark Softwarez</a>
             <button id="menu-toggle" class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
             <nav id="side-nav" class="bg-gray-800 w-full md:w-60 px-2 h-100 hidden md:block">
 
                 <div class="py-3 mb-6">
-                    <a href="/" class="text-white font-bold text-xl">ARK Softwarez</a>
+                    <a href="/" class="text-white font-bold text-xl">Ark Softwarez</a>
                 </div>
                 @auth
 

@@ -51,7 +51,7 @@ class QuoteController extends Controller
             // You can add additional logic (e.g., send an email) here
             // Send SMS
             $sms = new SmsTrait();
-            $sms->sendSms("024728115", "Hello ARK, you have a new inquiry from " . $validatedData['business_name'] . " (" . $validatedData['phone'] . "). Kindly check your dashboard for details.");
+            $sms->sendSms("024728115", "Hello Ark, you have a new inquiry from " . $validatedData['business_name'] . " (" . $validatedData['phone'] . "). Kindly check your dashboard for details.");
 
 
             return redirect()->back()->with('success', 'Your inquiry has been submitted successfully!');

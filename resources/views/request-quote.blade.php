@@ -2,7 +2,7 @@
 
 @section('title', 'Request A Quote')
 
-@section('navbar-title', 'ARK Softwarez')
+@section('navbar-title', 'Ark Softwarez')
 
 @section('content')
 

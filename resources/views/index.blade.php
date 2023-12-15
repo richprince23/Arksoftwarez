@@ -2,7 +2,7 @@
 
 @section('title', 'App Building Software Startup')
 
-@section('navbar-title', 'ARK Softwarez')
+@section('navbar-title', 'Ark Softwarez')
 
 @section('content')
 <?php
@@ -96,7 +96,7 @@
                 <div class="flex mb-6">
                     <img src="{{asset('images/bukyia.png')}}" alt="bukyia logo" class="w-20 h-20 rounded-full">
                     <div class="pl-4">
-                        <p class="italic font-medium">"ARK Softwarez provided us with the best team to put our business online and helped us scale quickly."</p>
+                        <p class="italic font-medium">"Ark Softwarez provided us with the best team to put our business online and helped us scale quickly."</p>
                         <p class="font-medium text-gray-500">Bukyia</p>
                     </div>
                 </div>

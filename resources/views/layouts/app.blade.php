@@ -8,10 +8,10 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta name="keywords" content="software, business software, education software, productivity tools, learning solutions, software development">
-    <meta name="author" content="ARK Softwarez">
+    <meta name="author" content="Ark Softwarez">
 
     <!-- Open Graph Meta Tags (for social media sharing) -->
-    <meta property="og:title" content="ARK Softwarez - Software for Business and Education">
+    <meta property="og:title" content="Ark Softwarez - Software for Business and Education">
     <meta property="og:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
@@ -19,7 +19,7 @@
 
     <!-- Twitter Meta Tags (for Twitter card) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ARK SOftwarez - Software for Business and Education">
+    <meta name="twitter:title" content="Ark SOftwarez - Software for Business and Education">
     <meta name="twitter:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
     <meta name="twitter:image" content="{{ asset('images/brand/ark_logo.png') }}">
 
@@ -36,7 +36,7 @@
     <nav class="bg-indigo-600 p-4 flex justify-between items-center">
         <div class="text-white font-bold text-2xl">
             <a href="/" class="flex flex-row"><img src="{{ asset('images/brand/ark_logo_white.png') }}"
-                    class="w-8 h-8 mx-5" alt="logo"> @yield('navbar-title', 'ARK Softwarez')</a>
+                    class="w-8 h-8 mx-5" alt="logo"> @yield('navbar-title', 'Ark Softwarez')</a>
         </div>
         <!-- Toggle button for small screens -->
         <button id="menu-toggle" class="md:hidden text-white">
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="pt-4 flex justify-between items-center border-t border-gray-800">
-                <p>&copy; 2023 ARK Softwarez. All rights reserved.</p>
+                <p>&copy; 2023 Ark Softwarez. All rights reserved.</p>
                 <div>
                     <a href="#"
                         class="w-9 h-9 rounded-full flex justify-center items-center border border-gray-500 text-gray-500 ml-3 hover:text-white hover:bg-gray-500 hover:border-gray-500">
