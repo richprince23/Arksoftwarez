@@ -31,29 +31,34 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string',
-            'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tags' => 'nullable|string',
-        ]);
+        try {
+            //code...
+            $request->validate([
+                'title' => 'required|string',
+                'content' => 'required|string',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'tags' => 'nullable|string',
+            ]);
 
-        $imageName = null;
+            $imageName = null;
 
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('/images/posts'), $imageName);
+            if ($request->hasFile('image')) {
+                $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('/images/posts'), $imageName);
+            }
+
+            $post = Post::create([
+                'title' => $request->title,
+                'content' => $request->content,
+                'author' => Auth::user()->name ?? "Admin",
+                'image' => 'images/posts/'.$imageName,
+                'tags' => $request->tags
+            ]);
+
+            return redirect()->route('admin.news', $post->id)->with('success', 'Post created successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'There was a problem adding this post. Please try again');
         }
-
-        $post = Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'author' => Auth::user()->name ?? "Admin",
-            'image' => 'images/posts/'.$imageName,
-            'tags' => $request->tags
-        ]);
-
-        return redirect()->route('admin.news', $post->id)->with('success', 'Post created successfully.');
     }
 
     /**
