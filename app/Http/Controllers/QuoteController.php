@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use App\Traits\SmsTrait;
 
 class QuoteController extends Controller
 {
@@ -48,13 +49,15 @@ class QuoteController extends Controller
 
             // TODO: send email
             // You can add additional logic (e.g., send an email) here
+            // Send SMS
+            $sms = new SmsTrait();
+            $sms->sendSms("024728115", "Hello ARK, you have a new inquiry from " . $validatedData['business_name'] . " (" . $validatedData['phone'] . "). Kindly check your dashboard for details.");
+
 
             return redirect()->back()->with('success', 'Your inquiry has been submitted successfully!');
-
         } catch (ValidationException $e) {
             // If validation fails, redirect back with errors
             return redirect()->back()->withErrors($e->errors())->withInput();
-
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'There was a problem with your request. Check and resubmit');
         }
@@ -65,34 +68,34 @@ class QuoteController extends Controller
      *
      */
 
-     public function index()
-     {
+    public function index()
+    {
         $quotes = Quote::all();
-         return view('admin.quote', compact('quotes'));
-     }
+        return view('admin.quote', compact('quotes'));
+    }
 
-     /**
-      * Delete an inquiry
-      *
-      * @param int $id
-      * @return \Illuminate\Http\RedirectResponse
-      */
-     public function destroy($id)
-     {
-         $quote = Quote::find($id);
-         $quote->delete();
+    /**
+     * Delete an inquiry
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $quote = Quote::find($id);
+        $quote->delete();
 
-         return redirect()->back()->with('success', 'Quote deleted successfully!');
-     }
+        return redirect()->back()->with('success', 'Quote deleted successfully!');
+    }
 
-     /**
-      * Get and display quote details
-      * @param int $id
-      * return \Illuminate\Http\RedirectResponse
-      */
-      public function viewQuote($id){
+    /**
+     * Get and display quote details
+     * @param int $id
+     * return \Illuminate\Http\RedirectResponse
+     */
+    public function viewQuote($id)
+    {
         $quote = Quote::find($id);
         return view('admin.view-quote', compact('quote'));
-      }
-
+    }
 }
