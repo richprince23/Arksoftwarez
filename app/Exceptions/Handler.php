@@ -24,7 +24,9 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            //
+            if (app()->bound('sentry')) {
+                app('sentry')->captureException($e);
+              }
         });
     }
 
@@ -35,16 +37,16 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, \Throwable $exception)
+    public function render($request, Throwable $exception)
     {
         // Handle 404 errors
-        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+        if ($this->isHttpException($exception) && $exception->getCode() == 404) {
             return response()->view('errors.404', [], 404);
         }
-        if ($this->isHttpException($exception) && $exception->getCode() == 500) {
-            // Custom response or view for 500 error
-            return response()->view('errors.500', [], 500);
-        }
+        // if ($this->isHttpException($exception) && $exception->getCode() == 500) {
+        //     // Custom response or view for 500 error
+        //     return response()->view('errors.500', [], 500);
+        // }
 
 
         return parent::render($request, $exception);
