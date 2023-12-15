@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
-
+use App\Traits\SmsTrait;
 
 class InquiryController extends Controller
 {
@@ -35,6 +35,10 @@ class InquiryController extends Controller
             $inquiry->subject = $validatedData['subject'];
             $inquiry->message = $validatedData['message'];
             $inquiry->save();
+
+            // Send SMS
+            $sms = new SmsTrait();
+            $sms->sendSms("024728115", "Hello ARK, you have a new inquiry from " . $inquiry->first_name . " " . $inquiry->last_name . ". Kindly check your dashboard for details.");
 
             // Mail::to($inquiry->email)->send(new InquirySubmitted($inquiry));
 
