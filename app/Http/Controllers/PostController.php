@@ -69,19 +69,24 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        try {
+            //code...
+            $post = Post::findOrFail($id);
 
-        // Delete the associated image if it exists
-        if ($post->image) {
-            $imagePath = public_path("images/posts/{$post->image}");
-            if (File::exists($imagePath)) {
-                File::delete($imagePath);
+            // Delete the associated image if it exists
+            if ($post->image) {
+                $imagePath = public_path("images/posts/{$post->image}");
+                if (File::exists($imagePath)) {
+                    File::delete($imagePath);
+                }
             }
+
+            $post->delete();
+
+            return redirect()->route('admin.news')->with('success', 'Post deleted successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'There was a problem deleting this post. Please try again');
         }
-
-        $post->delete();
-
-        return redirect()->route('admin.news')->with('success', 'Post deleted successfully.');
     }
 
 
