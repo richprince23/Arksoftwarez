@@ -20,28 +20,37 @@ class PortfolioController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
 
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images/portfolios'), $imageName);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/portfolios'), $imageName);
 
-        Portfolio::create([
-            'name' => $request->name,
-            'image' => 'images/portfolios/'.$imageName,
-        ]);
+            Portfolio::create([
+                'name' => $request->name,
+                'image' => 'images/portfolios/'.$imageName,
+            ]);
 
-        return redirect()->back()->with('success', 'Portfolio added successfully.');
+            return redirect()->back()->with('success', 'Project added successfully.');
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'There was a problem adding this project. Please try again');
+        }
     }
 
     public function destroy($id)
     {
-        $portfolio = Portfolio::findOrFail($id);
-        unlink(public_path($portfolio->image));
-        $portfolio->delete();
+        try {
+            $portfolio = Portfolio::findOrFail($id);
+            unlink(public_path($portfolio->image));
+            $portfolio->delete();
 
-        return redirect()->back()->with('success', 'Portfolio deleted successfully.');
+            return redirect()->back()->with('success', 'Portfolio deleted successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'There was a problem deleting this project. Please try again');
+        }
     }
 }
