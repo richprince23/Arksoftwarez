@@ -138,6 +138,11 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                @if (session('error'))
+                    <div class="bg-red-500 p-4 text-white">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
                 @yield('content')
             </main>

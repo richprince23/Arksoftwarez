@@ -17,22 +17,26 @@ class TeamController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'position' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string',
+                'position' => 'required|string',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
 
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images/team'), $imageName);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/team'), $imageName);
 
-        Team::create([
-            'name' => $request->input('name'),
-            'position' => $request->input('position'),
-            'image' => 'images/team/'.$imageName,
-        ]);
+            Team::create([
+                'name' => $request->input('name'),
+                'position' => $request->input('position'),
+                'image' => 'images/team/'.$imageName,
+            ]);
 
-        return redirect()->route('admin.team')->with('success', 'Team member added successfully.');
+            return redirect()->route('admin.team')->with('success', 'Team member added successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'There was a problem adding this member. Please try again');
+        }
     }
 
     public function destroy($id)
@@ -44,7 +48,7 @@ class TeamController extends Controller
                 unlink(public_path($teamMember->image));
                 //code...
             } catch (\Throwable $th) {
-                //throw $th;
+                return redirect()->back()->with('error', 'There was a problem deleting this member. Please try again');
             }
         }
 
