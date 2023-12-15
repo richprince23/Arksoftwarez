@@ -79,8 +79,7 @@
             {{-- app name --}}
             <div>
                 <label for="appName" class="block text-sm font-medium text-gray-700">App Name</label>
-                <input type="text" id="appName" name="app_name" class="mt-1 p-2 w-full border rounded-md"
-                    required>
+                <input type="text" id="appName" name="app_name" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Business Name -->
@@ -168,11 +167,15 @@
             });
 
             // Event listener for radio button change
-            document.querySelectorAll('input[name="hasDomain"]').forEach(function(radio) {
+            document.querySelectorAll('input[name="has_domain"]').forEach(function(radio) {
                 radio.addEventListener('change', function() {
-                    // Show/hide domain input based on user selection
+                    // Show domain input if 'Yes' is selected, hide otherwise
                     const domainInput = document.getElementById('domainInput');
-                    domainInput.classList.toggle('hidden', radio.value === 'no');
+                    if (radio.value === 'yes') {
+                        domainInput.classList.remove('hidden');
+                    } else {
+                        domainInput.classList.add('hidden');
+                    }
                 });
             });
 
@@ -182,19 +185,19 @@
             }
 
             // Event listener for appType change
-            appTypeSelect.addEventListener('change', function () {
-            const selectedType = appTypeSelect.value;
+            appTypeSelect.addEventListener('change', function() {
+                const selectedType = appTypeSelect.value;
 
-            // // Show/hide platform selection based on the selected Type of App
-            // mobilePlatforms.classList.toggle('hidden', selectedType !== 'mobile');
-            // desktopPlatforms.classList.toggle('hidden', selectedType !== 'desktop');
+                // // Show/hide platform selection based on the selected Type of App
+                // mobilePlatforms.classList.toggle('hidden', selectedType !== 'mobile');
+                // desktopPlatforms.classList.toggle('hidden', selectedType !== 'desktop');
 
-            // Set or remove the required attribute based on the selected type
-            const radioButtons = document.querySelectorAll('input[name="mobilePlatform"]');
-            radioButtons.forEach(function (radio) {
-                radio.required = selectedType === 'mobile';
+                // Set or remove the required attribute based on the selected type
+                const radioButtons = document.querySelectorAll('input[name="mobilePlatform"]');
+                radioButtons.forEach(function(radio) {
+                    radio.required = selectedType === 'mobile';
+                });
             });
-        });
 
 
 
