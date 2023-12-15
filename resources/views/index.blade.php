@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'App Building Software Startup')
+@section('title', 'App Building Startup')
 
 @section('navbar-title', 'Ark Softwarez')
 
