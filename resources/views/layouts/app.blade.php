@@ -5,13 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta name="keywords" content="software, business software, education software, productivity tools, learning solutions, software development">
+    <meta name="author" content="ARK Softwarez">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="ARK Softwarez - Software for Business and Education">
+    <meta property="og:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:image" content="{{ asset('images/brand/ark_logo.png') }}">
+
+    <!-- Twitter Meta Tags (for Twitter card) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARK SOftwarez - Software for Business and Education">
+    <meta name="twitter:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta name="twitter:image" content="{{ asset('images/brand/ark_logo.png') }}">
+
     <link rel="shortcut icon" href="{{ asset('images/brand/ark_logo.png') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
 
-    <title>@yield('title', 'App Building Software Startup')</title>
+    <title>@yield('title', 'App Building Startup')</title>
 </head>
 
 <body>

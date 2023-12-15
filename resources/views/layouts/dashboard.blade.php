@@ -8,7 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('images/brand/ark_logo_white.png')}}" type="image/x-icon">
     <title>@yield('title')</title>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta name="keywords" content="software, business software, education software, productivity tools, learning solutions, software development">
+    <meta name="author" content="ARK Softwarez">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="ARK Softwarez - Software for Business and Education">
+    <meta property="og:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:image" content="{{ asset('images/brand/ark_logo.png') }}">
+
+    <!-- Twitter Meta Tags (for Twitter card) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARK SOftwarez - Software for Business and Education">
+    <meta name="twitter:description" content="Innovative software solutions for businesses and education. Boost productivity and enhance learning with our cutting-edge software.">
+    <meta name="twitter:image" content="{{ asset('images/brand/ark_logo.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Styles -->
     <link rel="stylesheet"
